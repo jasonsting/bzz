@@ -1,0 +1,54 @@
+version: '3.4'
+
+services:
+  bzz-app001:
+    build: bzz-app001
+    image: bzznew/bzz-app001:latest
+    stdin_open: true
+    env_file:
+      - .env
+      - bzz-app001/.env
+    ports:
+      - '12300:80'
+    volumes:
+      - '/app/node_modules'
+    environment:
+      DB_SERVER: mssql
+      DB_PORT: 1433
+      DB_NAME: 'tempdb'
+      DB_USERNAME: sa
+      DB_PASSWORD: MoonPie1
+    links:
+      - nats.service
+    depends_on:
+      - nats.service
+      - mssql
+
+  nats.service:
+    image: nats
+      
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    environment:
+      - SA_PASSWORD=MoonPie1
+      - ACCEPT_EULA=Y
+    ports:
+      - "1456:1433"
+    volumes:
+      - database:/var/opt/mssql/data
+
+  flyway:
+    build: migrations
+    image: bzznew/migration:latest
+    command: -connectRetries=20 migrate
+    environment:
+      FLYWAY_USER: sa
+      FLYWAY_PASSWORD: MoonPie1
+      FLYWAY_URL: jdbc:jtds:sqlserver://mssql:1433/tempdb
+    depends_on:
+      - mssql
+    links:
+      - mssql
+
+volumes:
+  database:

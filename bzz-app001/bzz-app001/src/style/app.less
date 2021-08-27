@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap");
+
+@import "~antd/dist/antd.less";
+@import "./partials/collapseBox.less";
+@import "./partials/dashboard.less";
+
+.ant-page-header-heading-left {
+  overflow: initial;
+}
+.ant-page-header-heading-title {
+  font-family: "Cinzel", serif !important;
+  // font-size: 48px !important;
+  overflow: initial;
+  font-weight: 600 !important;
+}
+
+.colorPicker {
+  display: block;
+  float: left;
+  width: 50px;
+  margin-right: 10px;
+  text-align: center;
+  line-height: initial;
+  span {
+    text-align: center;
+    font-size: 12px !important;
+  }
+}
+
+.dropDownBox {
+  background: #fff;
+  border-radius: 6px;
+  width: auto;
+  min-width: 100px;
+  min-height: 120px;
+  overflow: hidden;
+  box-shadow: 0px 0px 20px 3px rgba(76, 76, 76, 0.1);
+  transition: all 0.3s ease-in-out;
+  top: 0px;
+  position: relative;
+}
+
+.dropDownBox:hover {
+  box-shadow: 0px 0px 28px 4px rgba(76, 76, 76, 0.15);
+}
+.logo {
+  height: 32px;
+  // background: rgba(255, 255, 255, 0.2);
+  margin: 16px;
+}
+
+.site-layout .site-layout-background {
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0px 0px 20px 3px rgb(76 76 76 / 10%);
+  transition: all 0.3s ease-in-out;
+}
+[data-theme="dark"] .site-layout .site-layout-background {
+  background: #141414;
+}
+.ant-layout-sider-zero-width-trigger {
+  top: 5px;
+  right: 10px;
+  color: #001529;
+  background: none;
+  font-size: 20px;
+}
+
+.events {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.events .ant-badge-status {
+  width: 100%;
+  overflow: hidden;
+  font-size: 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.notes-month {
+  font-size: 28px;
+  text-align: center;
+}
+.notes-month section {
+  font-size: 28px;
+}
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 32px;
+  height: 38px;
+  margin-left: -16px;
+  margin-top: -19px;
+}
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.logo .ant-avatar {
+  float: left;
+  margin-left: 10px;
+}
+
+.ant-dropdown-menu {
+  border-radius: 6px;
+}
+.login-form button[type="submit"] {
+  margin-bottom: 20px;
+}
+.login-form-forgot {
+  float: right;
+}
+.ant-col-rtl .login-form-forgot {
+  float: left;
+}
+.login-form-button {
+  width: 100%;
+}
+
+.clickRowStyl {
+  background: #00b4ed;
+}
+.ant-table * {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+.ant-table-row-selected > td {
+  background: #d8e6df !important;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

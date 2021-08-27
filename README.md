@@ -1,0 +1,96 @@
+
+# BZZ-APP001 - Dockerized
+
+## Notes
+- Authentication has been disabled
+- MSSQL DB is open to 1456 port externally
+
+## Services
+- Frontend
+- Backend
+- Database
+
+## Deploy
+
+### Recommended versions
+- docker = 19.03.12 or above
+- docker-compose = 1.28.2 or above
+- on windows machines using `wsl2` with `docker desktop` provide better performance than legacy `hyper V` backends
+
+### Single Instance (For development purpose)
+##### 1. Build
+run ``docker-compose -f docker-compose.yml build``
+##### 2. Start Services
+run ``docker-compose -f docker-compose.yml up -d``
+##### 3. Stop Services
+run ``docker-compose -f docker-compose.yml down``
+
+
+#### API 
+REST api is available via [localhost:12300/api/{path}](http://localhost:12300/api/)
+
+#### Web Application
+Web app can be access via [localhost:12300](http://localhost:12300)
+
+## Database Connection
+Find the following in `docker-compose.yml`
+```java 
+45 environment:
+46  DB_HOST: <db-server>
+47  DB_PORT: <db-port>
+48  DB_DATABASE: <db-name>
+49  DB_USER: <db-username>
+50  DB_PASSWORD: <db-password>
+```
+Change the above variables with the DB connection information.
+
+---
+### Additional Instructions
+#### Installation of Docker / Docker Compose
+##### Ubuntu (Recommended)
+##### 1. Install Docker Engine
+1. Update the apt package index and install packages to allow apt to use a repository over HTTPS::
+ ``` 
+sudo apt-get update
+
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+```
+2. Add Docker’s official GPG key::
+ `` curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg``
+ 1. Update the apt package index and install packages to allow apt to use a repository over HTTPS::
+ ``` 
+echo \
+  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+```
+ 4. Install Docker Engine
+ ``` 
+ sudo apt-get update
+ 
+ sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+sudo apt-get install docker-ce=18.06.3~ce~3-0~ubuntu docker-ce-cli=18.06.3~ce~3-0~ubuntu containerd.io
+  ```
+   5. Verify that Docker Engine is installed correctly by running the `hello-world` image.
+ ``sudo docker run hello-world``
+
+
+If the installation failed, follow the [Official instructions](https://docs.docker.com/engine/install/ubuntu/)
+
+##### 2. Install Docker Compose
+  1. Run this command to download the current stable release of Docker Compose:
+ ``sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose``
+ 2. Apply executable permissions to the binary:
+``sudo chmod +x /usr/local/bin/docker-compose``
+ 3. Test the installation.
+ ``$ docker-compose --version``
+  
+If the installation failed, follow the [Official instructions](https://docs.docker.com/compose/install/) and click Linux
+ ##### Windows
+ - Follow the [Official instructions](https://docs.docker.com/docker-for-windows/install/)
