@@ -35,12 +35,12 @@ Web app can be access via [localhost:12300](http://localhost:12300)
 ## Database Connection
 Find the following in `docker-compose.yml`
 ```java 
-45 environment:
-46  DB_HOST: <db-server>
-47  DB_PORT: <db-port>
-48  DB_DATABASE: <db-name>
-49  DB_USER: <db-username>
-50  DB_PASSWORD: <db-password>
+15 environment:
+16  DB_SERVER: <db-server>
+17  DB_PORT: <db-port>
+18  DB_NAME: <db-name>
+19  DB_USERNAME: <db-username>
+20  DB_PASSWORD: <db-password>
 ```
 Change the above variables with the DB connection information.
 
