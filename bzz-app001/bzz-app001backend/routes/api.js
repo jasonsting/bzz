@@ -7,6 +7,7 @@ const router = express.Router();
 const wq5508Controller = require("../controllers/wq5508Controller");
 const irbController = require("../controllers/irbController");
 const coverageGovermentController = require("../controllers/coverageGovermentController");
+const billingCalendarStaffController = require("../controllers/billingCalendarStaffController");
 
 //_______________________________ Admin management_______________________________
 
@@ -37,6 +38,10 @@ router.route("/irb/update/:id").patch(catchErrors(irbController.update));
 // router.route("/irb/delete/:id").delete(catchErrors(irbController.delete));
 // router.route("/irb/search").get(catchErrors(irbController.search));
 router.route("/irb/list").get(catchErrors(irbController.list));
+
+//_____________________________________ API for billingCalendarStaffController __________________________
+router.route("/billingcalendarstaff/list/:month/:year/:date_column").get(catchErrors(billingCalendarStaffController.list));
+
 
 //_____________________________________ API for coverageGoverments ___________________________
 // router
